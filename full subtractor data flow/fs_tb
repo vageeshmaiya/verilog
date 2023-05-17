@@ -1,0 +1,43 @@
+module fs_tb;
+  reg a_tb,b_tb,c_tb;
+  wire diff_tb,borrow_tb;
+  fs s1(.a(a_tb),.b(b_tb),.c(c_tb),.borrow(borrow_tb),.diff(diff_tb));
+  initial
+    begin
+      $dumpfile("full_subtractor_data_flow.vcd");
+      $dumpvars;
+      a_tb=1'b0;
+      b_tb=1'b0;
+      c_tb=1'b0;
+      #10;
+      a_tb=1'b0;
+      b_tb=1'b0;
+      c_tb=1'b1;
+      #10;
+      a_tb=1'b0;
+      b_tb=1'b1;
+      c_tb=1'b0;
+      #10;
+      a_tb=1'b0;
+      b_tb=1'b1;
+      c_tb=1'b1;
+      #10;
+      a_tb=1'b1;
+      b_tb=1'b0;
+      c_tb=1'b0;
+      #10;
+      a_tb=1'b1;
+      b_tb=1'b0;
+      c_tb=1'b1;
+      #10;
+      a_tb=1'b1;
+      b_tb=1'b1;
+      c_tb=1'b0;
+      #10;
+      a_tb=1'b1;
+      b_tb=1'b1;
+      c_tb=1'b1;
+      #10;
+      $finish;
+    end
+endmodule
